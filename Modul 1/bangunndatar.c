@@ -17,7 +17,7 @@ void menu();
 	bangun_datar lingkaran();
 	bangun_datar jajar_genjang();
 	bangun_datar trapesium();
-double input();
+double validasi();
 void hapus_buffer();
 void reset();
 
@@ -34,7 +34,7 @@ void menu(){
     int cek;
     bangun_datar pilih;
     printf("\nPilih bangun datar:\n\n\t1.Persegi\n\t2.Segitiga\n\t3.Lingkaran\n\t4.Trapesium\n\t5.Jajar Genjang\n\t6.Keluar Program\n\nPilihan : ");
-    pilihan = input();
+    pilihan = validasi();
     cek = pilihan;
     if (cek == pilihan){
         if (pilihan>5 || pilihan < 1){
@@ -79,9 +79,9 @@ bangun_datar persegi(){
     bangun_datar persegi;
     double panjang,lebar;
     printf("Masukkan panjang : ");
-    panjang = input();
+    panjang = validasi();
     printf("Masukkan lebar : ");
-    lebar=input();
+    lebar=validasi();
     persegi.luas=panjang*lebar;
     persegi.keliling=2*(panjang+lebar);
     strcpy(persegi.nama,"Persegi");
@@ -92,7 +92,7 @@ bangun_datar lingkaran(){
     bangun_datar lingkaran;
     double r;
     printf("Masukkan panjang jari-jari : ");
-    r=input();
+    r=validasi();
     lingkaran.luas = PHI*r*r;
     lingkaran.keliling = 2*PHI*r;
     strcpy(lingkaran.nama,"Lingkaran");
@@ -103,11 +103,11 @@ bangun_datar segitiga(){
     bangun_datar bangunSegitiga;
     double s1,s2,s3,s;
     printf("Masukkan sisi 1 : ");
-    s1 = input();
+    s1 = validasi();
     printf("Masukkan sisi 2 : ");
-    s2 = input();
+    s2 = validasi();
     printf("Masukkan sisi 3 : ");
-    s3 = input();
+    s3 = validasi();
     if(s1+s2 == s3 || s1+s3 == s2 || s2+s3 ==s1){
         system("cls");
         printf("Input Salah\n");
@@ -125,11 +125,11 @@ bangun_datar jajar_genjang(){
     bangun_datar jajar_genjang;
     double s1,s2,t;
     printf("Masukkan sisi alas jajar genjang : ");
-    s1 = input();
+    s1 = validasi();
     printf("Masukkan sisi miring jajar genjang : ");
-    s2 = input();
+    s2 = validasi();
     printf("Masukkan tinggi jajar genjang : ");
-    t = input();
+    t = validasi();
     jajar_genjang.luas = s1*t;
     jajar_genjang.keliling = 2*s1+2*s2 ;
     strcpy(jajar_genjang.nama,"Jajar Genjang");
@@ -140,27 +140,27 @@ bangun_datar trapesium(){
     bangun_datar trapesium;
     double alas,sisiSejajar,sisiLain1,sisiLain2,tinggi;
     printf("Masukkan alas : ");
-    alas = input();
+    alas = validasi();
     printf("Masukkan sisi sejajar dengan alas : ");
-    sisiSejajar = input();
+    sisiSejajar = validasi();
     printf("Masukkan 2 buah sisi lainnya : ");
-    sisiLain1 = input();
-    sisiLain2 = input();
+    sisiLain1 = validasi();
+    sisiLain2 = validasi();
     printf("Masukkan tinggi :");
-    tinggi = input();
+    tinggi = validasi();
     trapesium.keliling = alas+sisiSejajar+sisiLain1+sisiLain2;
     trapesium.luas = 1.0/2.0*(alas+sisiSejajar)*tinggi;
     strcpy(trapesium.nama,"Trapesium");
     return trapesium;
 }
 
-double input(){
+double validasi(){
     double angka;
     char karakter;
     if (scanf("%lf%c",&angka,&karakter)!= 2  || karakter != '\n' || karakter == ','){
         hapus_buffer();
         printf("Input Salah! Masukkan angka : ");
-        return input();
+        return validasi();
     } else {
         return angka;
     }
@@ -187,5 +187,3 @@ void reset(){
         reset();
     }
 }
-
-
