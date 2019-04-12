@@ -40,7 +40,7 @@ void menu(){
         if (pilihan>5 || pilihan < 1){
                 if (pilihan == 6){
                     return;
-                }else{
+                } else {
                     system("cls");
                     printf("Input Salah !\n");
                     menu();
@@ -68,7 +68,7 @@ void menu(){
             printf("\n\nBangun datar %s : \nLuas : %.2lf satuan\nKeliling : %.2lf satuan\n\n",pilih.nama,pilih.luas,pilih.keliling);
             reset();
         }
-    }else{
+    } else {
         system("cls");
         printf("Input Salah!\n");
         menu();
@@ -112,7 +112,7 @@ bangun_datar segitiga(){
         system("cls");
         printf("Input Salah\n");
         bangunSegitiga = segitiga();
-    }else{
+    } else {
         bangunSegitiga.keliling = s1 + s2 + s3;
         s = 0.5 * bangunSegitiga.keliling;
         bangunSegitiga.luas = sqrt(s*(s-s1)*(s-s2)*(s-s3)); 
