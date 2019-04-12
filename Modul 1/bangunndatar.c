@@ -30,7 +30,7 @@ int main(){
 }
 
 void menu(){
-    float pilihan;
+    int pilihan;
     int cek;
     bangun_datar pilih;
     printf("\nPilih bangun datar:\n\n\t1.Persegi\n\t2.Segitiga\n\t3.Lingkaran\n\t4.Trapesium\n\t5.Jajar Genjang\n\t6.Keluar Program\n\nPilihan : ");
